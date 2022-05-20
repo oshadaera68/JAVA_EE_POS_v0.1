@@ -1,0 +1,90 @@
+<!--/**
+*@Owner - Oshada Eranga
+*@Version - v0.1.0
+**/-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/normalize/normalize.css">
+</head>
+<body>
+<main>
+    <nav class="navbar navbar-expand-lg posNavi">
+        <div class="container-fluid">
+            <a class="navbar-brand active text-light link text" href="#">
+                Era Supermarket v0.1.0
+            </a>
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 naviItems">
+                    <li class="nav-link nav-item nav-link active text-light naviItem-2 home">
+                        <a href="index.html" style="text-decoration: none; color: white">Home</a>
+                    </li>
+                    <li class="nav-item nav-link active text-light naviItem-2 customer">
+                        <a href="customer.html" style="text-decoration: none; color: white">Customer</a>
+                    </li>
+                    <li class="nav-item nav-link active t naviItem-3 item">
+                        <a href="item.html" style="text-decoration: none; color: white">Item</a>
+                    </li>
+                    <li class="nav-item nav-link active text-light naviItem-3 placeOrder">
+                        <a href="order.html" style="text-decoration: none; color: white">Place Order</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicators">
+        <div class="carousel-indicators">
+            <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                    data-bs-target="#carouselExampleIndicators" type="button"></button>
+            <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators"
+                    type="button"></button>
+            <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators"
+                    type="button"></button>
+            <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#carouselExampleIndicators"
+                    type="button"></button>
+            <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#carouselExampleIndicators"
+                    type="button"></button>
+        </div>
+        <div class="carousel-inner w-100" style="height: 92vh;">
+            <div class="carousel-item active h-100">
+                <img alt="welcome" class="d-block w-100 h-100" src="assets/images/back1.jpg">
+            </div>
+            <div class="carousel-item h-100">
+                <img alt="slide 2" class="d-block w-100 h-100" src="assets/images/back2.jpg">
+            </div>
+            <div class="carousel-item h-100">
+                <img alt="slide 3" class="d-block w-100 h-100" src="assets/images/back3.jpg">
+            </div>
+            <div class="carousel-item h-100">
+                <img alt="slide 4" class="d-block w-100 h-100" src="assets/images/back4.jpg">
+            </div>
+            <div class="carousel-item h-100">
+                <img alt="slide 5" class="d-block w-100 h-100" src="assets/images/back5.jpg">
+            </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators"
+                type="button">
+            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators"
+                type="button">
+            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</main>
+</body>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</html>

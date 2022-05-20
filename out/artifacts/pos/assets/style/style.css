@@ -1,0 +1,62 @@
+/**
+*@Owner - Oshada Eranga
+*@Version - v0.1.0
+**/
+
+.customerTableDiv{
+    position: relative;
+    height: 30vh;
+    overflow: auto;
+}
+
+.posNavi {
+    z-index: 5;
+    width: 100%;
+    background: blueviolet;
+}
+
+.naviItems {
+    position: absolute;
+    left: 140vh !important;
+}
+
+.naviItems > li:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.text{
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+    color: white;
+}
+
+.home {
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+    color: white;
+}
+
+.customer{
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+}
+
+.item{
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+}
+
+.placeOrder{
+    font-family: Ubuntu, serif;
+    font-size: 16px;
+}
+
+.link{
+    font-family: Ubuntu, serif;
+    font-size: 17px;
+}
+
+.text-light{
+
+}
