@@ -4,8 +4,6 @@
  **/
 $(document).ready(function () {
         $("#btnSaveCustomer").click(function () {
-            // alert("Add");
-
             var settings = {
                 "url": "http://localhost:8080/pos/customer",
                 "method": "POST",
@@ -91,7 +89,6 @@ $(document).ready(function () {
         });
     }
 );
-
 
 function bindClickEvents() {
     $("#customerTable>tr").click(function () {

@@ -5,8 +5,6 @@
 
 $(document).ready(function () {
         $("#btnSaveItem").click(function () {
-            // alert("Add");
-
             var settings = {
                 "url": "http://localhost:8080/pos/item",
                 "method": "POST",
@@ -55,6 +53,7 @@ $(document).ready(function () {
                 "url": "http://localhost:8080/pos/item?itemCode" + itemCode,
                 "method": "DELETE",
             };
+
             $.ajax(settings).done(function (response) {
                 alert(response);
                 console.log(response);
@@ -70,15 +69,13 @@ $(document).ready(function () {
         });
 
         $("#btnUpdateItem").click(function () {
-
             let formData = $("#itemForm").serialize();
-            /*console.log(formData);*/
             var settings = {
                 "url": "http://localhost:8080/pos/item?itemCode?" + formData,
                 "method": "PUT",
             }
+
             $.ajax(settings).done(function (response) {
-                //alert(response);
                 if (response.status === 200) {
                     alert(response.message);
                     loadAllItems();
