@@ -41,7 +41,7 @@ $(document).ready(function () {
             $.ajax(settings).done(function (response) {
                 console.log(typeof response);
                 for (const item of response) {
-                    let row = `<tr><td>${item.code}</td><td>${item.name}</td><td>${item.price}</td><td>${item.qtyOnHand}</td></tr>`;
+                    let row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.unitPrice}</td><td>${item.qtyOnHand}</td></tr>`;
                     $("#itemTable").append(row);
                 }
                 bindClickEvents();
@@ -57,18 +57,36 @@ $(document).ready(function () {
             };
             $.ajax(settings).done(function (response) {
                 alert(response);
+                console.log(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllItems();
+                } else if (response.status === 400) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
             });
         });
 
         $("#btnUpdateItem").click(function () {
+
             let formData = $("#itemForm").serialize();
             /*console.log(formData);*/
             var settings = {
                 "url": "http://localhost:8080/pos/item?itemCode?" + formData,
-                "method": "PUT"
+                "method": "PUT",
             }
             $.ajax(settings).done(function (response) {
-                alert(response);
+                //alert(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllItems();
+                } else if (response.status === 400) {
+                    alert(response.message);
+                } else {
+                    alert(response.data);
+                }
             });
         });
     }
@@ -88,46 +106,3 @@ function bindClickEvents() {
         $("#txtQtyOnHand").val(qtyOnHand);
     });
 }
-
-//
-//         });
-//
-//
-//     });
-//
-//     loadAllCustomers();
-//
-//     function loadAllCustomers() {
-//         $("#itemTable").empty();
-//         $.ajax({
-//             url: "item",
-//             method: "GET",
-//             // dataType:"json", // please convert the response into JSON
-//             success: function (resp) {
-//                 console.log(typeof resp);
-//                 for (const item of resp) {
-//                     let row = `<tr><td>${item.code}</td><td>${item.name}</td><td>${item.unitPrice}</td><td>${item.qtyOnHand}</td></tr>`;
-//                     $("#itemTable").append(row);
-//                 }
-//                 bindClickEvents();
-//             }
-//         });
-//
-//     }
-//
-//     function bindClickEvents() {
-//         $("#itemTable>tr").click(function () {
-//             //Get values from the selected row
-//             let id = $(this).children().eq(0).text();
-//             let name = $(this).children().eq(1).text();
-//             let unitPrice = $(this).children().eq(2).text();
-//             let qtyOnHand = $(this).children().eq(3).text();
-//
-//             //Set values to the text-fields
-//             $("#txtItemCode").val(id);
-//             $("#txtItemName").val(name);
-//             $("#txtUnitPrice").val(unitPrice);
-//             $("#txtQtyOnHand").val(qtyOnHand);
-//         });
-//     }
-// });

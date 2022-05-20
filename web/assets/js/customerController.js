@@ -56,6 +56,15 @@ $(document).ready(function () {
             };
             $.ajax(settings).done(function (response) {
                 alert(response);
+                console.log(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllCustomer();
+                } else if (response.status === 400) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
             });
         });
 
@@ -69,6 +78,15 @@ $(document).ready(function () {
             }
             $.ajax(settings).done(function (response) {
                 alert(response);
+                console.log(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllCustomer();
+                } else if (response.status === 400) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
             });
         });
     }

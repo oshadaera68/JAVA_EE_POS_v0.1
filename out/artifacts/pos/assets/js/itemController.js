@@ -41,7 +41,7 @@ $(document).ready(function () {
             $.ajax(settings).done(function (response) {
                 console.log(typeof response);
                 for (const item of response) {
-                    let row = `<tr><td>${item.code}</td><td>${item.name}</td><td>${item.price}</td><td>${item.qtyOnHand}</td></tr>`;
+                    let row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.unitPrice}</td><td>${item.qtyOnHand}</td></tr>`;
                     $("#itemTable").append(row);
                 }
                 bindClickEvents();
@@ -61,14 +61,29 @@ $(document).ready(function () {
         });
 
         $("#btnUpdateItem").click(function () {
+            // var itemOb = {
+            //     code: $("#txtItemCode").val(),
+            //     name: $("#txtItemName").val(),
+            //     unitPrice: $("#txtUnitPrice").val(),
+            //     qtyOnHand: $("#txtQtyOnHand").val()
+            // }
             let formData = $("#itemForm").serialize();
             /*console.log(formData);*/
             var settings = {
                 "url": "http://localhost:8080/pos/item?itemCode?" + formData,
-                "method": "PUT"
+                "method": "PUT",
+                data: JSON.stringify(itemOb)
             }
             $.ajax(settings).done(function (response) {
-                alert(response);
+                //alert(response);
+                if (response.status === 200) { // process is  ok
+                    alert(response.message);
+                    loadAllItems();
+                } else if (response.status === 400) { // there is a problem with the client side
+                    alert(response.message);
+                } else {
+                    alert(response.data); // else maybe there is an exception
+                }
             });
         });
     }
