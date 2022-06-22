@@ -4,8 +4,6 @@
  **/
 $(document).ready(function () {
         $("#btnSaveCustomer").click(function () {
-            // alert("Add");
-
             var settings = {
                 "url": "http://localhost:8080/pos/customer",
                 "method": "POST",
@@ -56,6 +54,15 @@ $(document).ready(function () {
             };
             $.ajax(settings).done(function (response) {
                 alert(response);
+                console.log(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllCustomer();
+                } else if (response.status === 400) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
             });
         });
 
@@ -69,11 +76,19 @@ $(document).ready(function () {
             }
             $.ajax(settings).done(function (response) {
                 alert(response);
+                console.log(response);
+                if (response.status === 200) {
+                    alert(response.message);
+                    loadAllCustomer();
+                } else if (response.status === 400) {
+                    alert(response.data);
+                } else {
+                    alert(response.data);
+                }
             });
         });
     }
 );
-
 
 function bindClickEvents() {
     $("#customerTable>tr").click(function () {

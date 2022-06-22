@@ -3,7 +3,7 @@
  * @Version - v0.1.0
  **/
 
-package dao.custom.impl;
+package dao.custom;
 
 import javax.json.JsonArray;
 import java.sql.SQLException;

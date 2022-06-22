@@ -5,6 +5,8 @@
 
 package dao.custom.impl;
 
+import dao.custom.CrudDAO;
+import dao.custom.CrudUtil;
 import entity.Item;
 
 import javax.json.Json;
@@ -17,7 +19,7 @@ import java.sql.SQLException;
 public class ItemDAOImpl implements CrudDAO<Item, String> {
     @Override
     public JsonArray getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.execute("SELECT * FROM item");
+        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM item");
         Item i = null;
         JsonArrayBuilder itemArrayBuilder = Json.createArrayBuilder();
         JsonObjectBuilder itemObjectBuilder = Json.createObjectBuilder();
@@ -39,16 +41,16 @@ public class ItemDAOImpl implements CrudDAO<Item, String> {
 
     @Override
     public boolean add(Item i) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("INSERT INTO item VALUES (?,?,?,?)", i.getCode(), i.getName(), i.getUnitPrice(), i.getQtyOnHand());
+        return CrudUtil.executeUpdate("INSERT INTO item VALUES (?,?,?,?)", i.getCode(), i.getName(), i.getUnitPrice(), i.getQtyOnHand());
     }
 
     @Override
     public boolean update(Item i) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("UPDATE item SET name=?, unitPrice=?,qtyOnHand=?,code=?", i.getName(), i.getUnitPrice(), i.getQtyOnHand(), i.getCode());
+        return CrudUtil.executeUpdate("UPDATE item SET name=?, unitPrice=?,qtyOnHand=?,code=?", i.getName(), i.getUnitPrice(), i.getQtyOnHand(), i.getCode());
     }
 
     @Override
     public boolean delete(String code) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("DELETE FROM item WHERE code=?", code);
+        return CrudUtil.executeUpdate("DELETE FROM item WHERE code=?", code);
     }
 }

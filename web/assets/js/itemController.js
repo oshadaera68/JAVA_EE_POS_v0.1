@@ -26,25 +26,7 @@ $(document).ready(function () {
 
         loadAllItems();
 
-        $("#btnLoadAllItem").click(function () {
-            loadAllItems();
-        });
 
-        function loadAllItems() {
-            var settings = {
-                "url": "http://localhost:8080/pos/item",
-                "method": "GET",
-            };
-
-            $.ajax(settings).done(function (response) {
-                console.log(typeof response);
-                for (const item of response) {
-                    let row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.unitPrice}</td><td>${item.qtyOnHand}</td></tr>`;
-                    $("#itemTable").append(row);
-                }
-                bindClickEvents();
-            });
-        }
 
         $("#btnDeleteItem").click(function () {
             let itemCode = $("#txtItemCode").val();
@@ -101,5 +83,25 @@ function bindClickEvents() {
         $("#txtItemName").val(name);
         $("#txtUnitPrice").val(unitPrice);
         $("#txtQtyOnHand").val(qtyOnHand);
+    });
+}
+
+$("#btnLoadAllItem").click(function () {
+    loadAllItems();
+});
+
+function loadAllItems() {
+    var settings = {
+        "url": "http://localhost:8080/pos/item",
+        "method": "GET",
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(typeof response);
+        for (const item of response) {
+            let row = `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.unitPrice}</td><td>${item.qtyOnHand}</td></tr>`;
+            $("#itemTable").append(row);
+        }
+        bindClickEvents();
     });
 }

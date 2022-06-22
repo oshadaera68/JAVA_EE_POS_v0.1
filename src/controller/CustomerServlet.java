@@ -5,8 +5,8 @@
 
 package controller;
 
-import dao.custom.impl.CrudDAO;
-import dao.custom.impl.DAOFactory;
+import dao.custom.CrudDAO;
+import dao.custom.DAOFactory;
 import entity.Customer;
 
 import javax.json.Json;
