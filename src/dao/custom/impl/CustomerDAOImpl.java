@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class CustomerDAOImpl implements CrudDAO<Customer, String> {
     @Override
     public JsonArray getAll() throws SQLException, ClassNotFoundException {
-        ResultSet rst = CrudUtil.executeQuery("SELECT * FROM customer");
+        ResultSet rst =  CrudUtil.executeQuery("SELECT * FROM customer");
         Customer c = null;
         JsonArrayBuilder customerArrayBuilder = Json.createArrayBuilder();
         JsonObjectBuilder customerObjectBuilder = Json.createObjectBuilder();

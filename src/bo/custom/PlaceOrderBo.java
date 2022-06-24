@@ -5,5 +5,5 @@
 
 package bo.custom;
 
-public class PlaceOrderBo {
+public interface PlaceOrderBo {
 }
