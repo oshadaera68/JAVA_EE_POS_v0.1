@@ -52,4 +52,14 @@ public class ItemDTO {
     public void setQtyOnHand(int qtyOnHand) {
         this.qtyOnHand = qtyOnHand;
     }
+
+    @Override
+    public String toString() {
+        return "ItemDTO{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", qtyOnHand=" + qtyOnHand +
+                '}';
+    }
 }
